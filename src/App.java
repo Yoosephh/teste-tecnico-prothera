@@ -8,11 +8,9 @@ import java.time.Period;
 import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
 import java.util.Comparator;
-import java.util.Locale;
 
 public class App {
     public static void main(String[] args) throws Exception {
-
         System.out.println("Cadastrando equipe..");
         Funcionario[] time = mockData();
         Thread.sleep(1500);
@@ -73,7 +71,8 @@ public class App {
         System.out.println("Vamos ver quantos salários mínimos cada pessoa ganha?");
         Thread.sleep(1500);
         for(Funcionario funcionario : novoTime) {
-            System.out.println("{nome: " + funcionario.getNome() + ", salariosMinimos: " + funcionario.getSalario().divide(BigDecimal.valueOf(1212), 2, RoundingMode.HALF_UP) + " salarios}");
+            System.out.println("{nome: " + funcionario.getNome() + ", salariosMinimos: " + 
+            funcionario.getSalario().divide(BigDecimal.valueOf(1212), 2, RoundingMode.HALF_UP) + " salarios}");
         }
     }
 
