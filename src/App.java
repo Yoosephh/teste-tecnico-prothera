@@ -9,31 +9,46 @@ import java.util.Locale;
 
 public class App {
     public static void main(String[] args) throws Exception {
-        Funcionario[] team = mockData();
+        Funcionario[] time = mockData();
         // System.out.println("O retorno a seguir se refere à equipe completa:");
         // System.out.println(Arrays.deepToString(team).replace("}, ", "}\n"));
         // System.out.println("Equipe completa retornada!");
         
         // System.out.println("Removendo João da Lista!");
-        // Object[][] newTeam = removeData(team, 1);
+        // Object[][] newTeam = removeData(time, 1);
         // System.out.println(Arrays.deepToString(newTeam).replace("}, ", "}\n"));
         // System.out.println("Tchau, João!");
 
-        for (Funcionario funcionario : team) {
-            System.out.println("{" +
+        // for (Funcionario funcionario : time) {
+            //System.out.println("{" +
+                //    "nome='" + funcionario.getNome() + '\'' +
+                  //  ", dataNascimento=" + formatData(funcionario.getDataNascimento()) +
+                //    ", salario=" + formatSalary(funcionario.getSalario())  +
+              //      ", funcao='" + funcionario.getFuncao() + '\'' +
+            //        '}'
+          //      );
+        //}
+        
+        //System.out.println("Atualizando salarios:");
+        
+        //salaryIncrease(time);
+        //System.out.println(Arrays.deepToString(time).replace("}, ", "}\n"));
+        
+        //System.out.println("Agrupando os funcionários...");
+        
+        System.out.println("E os aniversariantes de Outubro ou Dezembro são...");
+        
+        for(Funcionario funcionario : time) {
+            LocalDate date = funcionario.getDataNascimento();
+            if(date.getMonth().toString() == "OCTOBER" || date.getMonth().toString() == "DECEMBER" ) {
+                System.out.println("{" +
                     "nome='" + funcionario.getNome() + '\'' +
-                    ", dataNascimento=" + formatData(funcionario.getDataNascimento()) +
+                    ", dataNascimento=" + date +
                     ", salario=" + formatSalary(funcionario.getSalario())  +
                     ", funcao='" + funcionario.getFuncao() + '\'' +
-                    '}'
-                );
+                    '}');
+            }
         }
-        System.out.println("Atualizando salarios:");
-        salaryIncrease(team);
-        System.out.println(Arrays.deepToString(team).replace("}, ", "}\n"));
-        System.out.println("Agrupando os funcionários...");
-        
-
     }
 
     public static Funcionario[] mockData() {
